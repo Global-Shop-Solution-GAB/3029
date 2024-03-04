@@ -1,0 +1,40 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+' 6/4/08 JSO
+' 12/17/08 JSO added pause functionality to set cursor on the router number
+' Hook 11010 and 11110
+
+Variable.Local.sSwitch.Declare(String)
+Variable.Local.iRet.Declare(Long)
+Variable.Local.sPath.Declare(String)
+
+Function.Intrinsic.String.Left(Variable.Caller.Switches,1,Variable.Local.sSwitch)
+Function.Intrinsic.control.if(Variable.Local.sSwitch,=,"N")
+	Variable.Passed.000015.Set("IR")
+	Variable.Passed.000037.Set("B1")
+	Variable.Passed.000022.Set("EA")
+	Variable.Passed.008000.Set("1")
+	Variable.Passed.008001.Set("10")
+	Variable.Passed.008002.Set("25")
+	Variable.Passed.008003.Set("50")
+	Variable.Passed.008004.Set("100")
+	Variable.Passed.008005.Set("250")
+	Variable.Passed.008006.Set("500")
+	Variable.Passed.008007.Set("1000")
+	Variable.Passed.008008.Set("2500")
+	Variable.Passed.008009.Set("5000")
+Function.Intrinsic.Control.endif
+
+Function.Intrinsic.String.Concat(Variable.Caller.PluginsDir,"\GAB\GAS\TMCO_Rtr_Pause.gas",V.Local.sPath)
+Function.Global.General.CallAsyncGAS(V.Local.sPath,V.local.iRet)
+
+
+Program.Sub.Main.End
+
+
