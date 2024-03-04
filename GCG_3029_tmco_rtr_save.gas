@@ -1,0 +1,16 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+' 6/4/08 JSO
+' Hook 11090
+
+Variable.Passed.000017.Set(Variable.Passed.000017.ucase)
+
+Program.Sub.Main.End
+
+
